@@ -2,40 +2,58 @@
 
 namespace Project2
 {
+    using System;
+
     class Animal
     {
-        public string name {  get; set; }
-        public int age {  get; set; }
+        public string Name { get; set; }  
+        public int Age { get; set; }    
+
+        public Animal(string name, int age)
+        {
+            Name = name;
+            Age = age;
+        }
+
         public void Speak()
         {
-            Console.WriteLine($"this is a {this.name} with age of {this.age}");
+            Console.WriteLine($"{Name} is {Age} years old.");
         }
     }
-    class Dog : Animal {
-        string name = "dog";
-        int age = 3;
-        public string breed = "something";
-    }
-    class Cat : Animal {
-        public string name = "cat";
-        public int age = 5;
-        
-         public void Speak() {
-            Console.WriteLine($"it is a {name} and age = {age}");
+
+    class Dog : Animal
+    {
+        public string Breed { get; set; }  
+
+        public Dog(string name, int age, string breed) : base(name, age)
+        {
+            Breed = breed;
         }
     }
+
+    class Cat : Animal
+    {
+        public Cat(string name, int age) : base(name, age) { }
+
+        public void Meow()
+        {
+            Console.WriteLine("Meow!");
+        }
+    }
+
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            Animal animal = new Animal();
-            Cat cat = new Cat();
-            Dog dog = new Dog();
+            Dog dog = new Dog("Buddy", 3, "Golden Retriever");
+            Cat cat = new Cat("Whiskers", 2);
 
-            animal.Speak();
-            dog.Speak();
-            cat.Speak();
-            
+            dog.Speak();  
+            cat.Speak();  
+
+            cat.Meow();
+
+            string s = Console.ReadLine();
         }
     }
 }
