@@ -112,8 +112,6 @@ namespace WeekOne
                 Console.WriteLine(student.Name);
             }
 
-
-
             //int studid = 1;
             //Console.WriteLine("select a option that you need\n 1.students \n 2.courses");
             //int num = Console.Read();
