@@ -1,9 +1,4 @@
-using weekTwoDayOne.services;
-using weekTwoDayOne.services;
-
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddSingleton<IhomeServices, homeServices>();
 
 // Add services to the container.
 
