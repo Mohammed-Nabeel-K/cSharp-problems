@@ -1,6 +1,6 @@
 ﻿using weekTwoDayOne.Models;
 
-namespace weekTwoDayOne.EmployeeList
+namespace weekTwoDayOne.EmployeeLis
 {
     public static class EmployeeList
     {

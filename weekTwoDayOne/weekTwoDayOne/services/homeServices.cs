@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using weekTwoDayOne.EmployeeList;
+using weekTwoDayOne.EmployeeLis;
 using weekTwoDayOne.Models;
 
 namespace weekTwoDayOne.services
@@ -15,24 +15,24 @@ namespace weekTwoDayOne.services
     public class homeServices : IhomeServices
     {
         public IEnumerable<EmployeeModel> getData() {
-            var employeelist = EmployeeList.EmployeeList.employees.Select(n => n);
+            var employeelist = EmployeeLis.EmployeeList.employees.Select(n => n);
             return employeelist;
         }
 
         public EmployeeModel getEmployee(int id)
         {
-            var employee = EmployeeList.EmployeeList.employees.Where(n => n.EmployeeId == id ).FirstOrDefault();
+            var employee = EmployeeLis.EmployeeList.employees.Where(n => n.EmployeeId == id ).FirstOrDefault();
             return employee;
         }
 
         public EmployeeModel createEmployee([FromBody] EmployeeModel employee)
         {
-            EmployeeList.EmployeeList.employees.Add(employee);
+            EmployeeLis.EmployeeList.employees.Add(employee);
             return employee;
         }
         public EmployeeModel updateEmployee([FromBody] EmployeeModel employee)
         {
-            var employeeold = EmployeeList.EmployeeList.employees.Where(n => n.EmployeeId == employee.EmployeeId).FirstOrDefault();
+            var employeeold = EmployeeLis.EmployeeList.employees.Where(n => n.EmployeeId == employee.EmployeeId).FirstOrDefault();
             employeeold.EmployeeId = employee.EmployeeId;
             employeeold.EmployeeName = employee.EmployeeName;
             employeeold.EmployeePosition = employee.EmployeePosition;
@@ -40,8 +40,8 @@ namespace weekTwoDayOne.services
         }
         public bool deleteEmplyee(int id)
         {
-            var employee = EmployeeList.EmployeeList.employees.Where(n => n.EmployeeId == id).FirstOrDefault();
-            EmployeeList.EmployeeList.employees.Remove(employee);
+            var employee = EmployeeLis.EmployeeList.employees.Where(n => n.EmployeeId == id).FirstOrDefault();
+            EmployeeLis.EmployeeList.employees.Remove(employee);
             return (true);
             
         }

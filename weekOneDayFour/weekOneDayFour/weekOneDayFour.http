@@ -1,0 +1,6 @@
+@weekOneDayFour_HostAddress = http://localhost:5124
+
+GET {{weekOneDayFour_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
